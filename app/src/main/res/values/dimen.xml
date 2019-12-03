@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tab3_horizontal_margin">120dp</dimen>
+    <dimen name="tab3_top_margin">30dp</dimen>
+    <dimen name="padding_value">20dp</dimen>
+    <dimen name="leftBorder">350dp</dimen>
+    <dimen name="tab3_card_margin_value">4dp</dimen>
+    <dimen name="tab2_textMarginTop">20dp</dimen>
+    <dimen name="tab2_textMarginRight">10dp</dimen>
+    <dimen name="fiftydpmargin">50dp</dimen>
+    <dimen name="tendpmargin">10dp</dimen>
+    <dimen name="twentydpmargin">20dp</dimen>
+    <dimen name="thirtydpmargin">10dp</dimen>
+    <dimen name="seventydpmargin">70dp</dimen>
+    <dimen name="fifteendpmargin">15dp</dimen>
+    <dimen name="tab3_imageMarginLeft">9dp</dimen>
+    <dimen name="tab3_iconMarginLeft">18dp</dimen>
+</resources>

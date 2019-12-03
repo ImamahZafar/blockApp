@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background"
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="390dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardBackgroundColor="@color/background"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="30dp"
+        app:layout_columnWeight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.56"
+        app:layout_rowWeight="1">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="357dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="@dimen/twentydpmargin"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#c06c84"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp">
+
+
+            <ImageButton
+
+                android:id="@+id/button1"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/white_button_rounded"
+                android:backgroundTint="#ffffff"
+                app:srcCompat="@drawable/zz" />
+
+            <TextView
+                android:id="@+id/tab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/playfair_display"
+                android:text="HIBERNATE APP"
+                android:textColor="@color/background"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="357dp"
+            android:layout_height="94dp"
+            android:layout_marginLeft="@dimen/twentydpmargin"
+            android:layout_marginTop="140dp"
+            android:backgroundTint="#6c5b7b"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp">
+
+
+            <ImageButton
+                android:id="@+id/stop"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/white_button_rounded"
+                app:srcCompat="@drawable/stop1" />
+
+            <TextView
+                android:id="@+id/stopButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/playfair_display"
+                android:text="BLACKLIST APP"
+                android:textColor="@color/background"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="357dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="@dimen/twentydpmargin"
+            android:layout_marginTop="260dp"
+            android:backgroundTint="#355c7d"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="20dp">
+
+
+            <ImageButton
+
+                android:id="@+id/donotDisturb"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/white_button_rounded"
+                android:backgroundTint="#ffffff"
+                app:srcCompat="@drawable/star" />
+
+            <TextView
+                android:id="@+id/starText"
+                android:layout_width="112dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/playfair_display"
+                android:text="@string/star_app"
+                android:textColor="@color/background"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/twentydpmargin"
+        android:fontFamily="@font/playfair_display"
+        android:text="Let's Manage Your Apps"
+        android:textColor="@color/front"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/setName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fifteendpmargin"
+        android:fontFamily="@font/playfair_display"
+        android:text="Imamah!"
+        android:textColor="@color/front"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/playfair_display"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

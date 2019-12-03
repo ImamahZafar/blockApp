@@ -4,51 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="109dp"
-        android:layout_marginLeft="109dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="89dp"
-        android:layout_marginRight="89dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter Package Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/signIn"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="87dp"
-        android:layout_marginRight="87dp"
-        android:text="Add App"
-        android:onClick="addApp"
+        android:background="@color/background"
+        android:fontFamily="@font/playfair_display"
+        android:text="@string/signinbutton"
+        android:textColor="@color/front"
+        android:textSize="15dp"
+        android:layout_marginTop="@dimen/fiftydpmargin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:onClick="removeApps"
-        android:text="Empty Block List"
+        android:id="@+id/signUp"
+        android:layout_width="269dp"
+        android:layout_height="42dp"
+        android:background="@color/background"
+        android:fontFamily="@font/playfair_display"
+        android:text="@string/signupbutton"
+        android:textColor="@color/front"
+        android:layout_marginTop="@dimen/fiftydpmargin"
+        android:layout_marginBottom="@dimen/fiftydpmargin"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/signIn"
+        app:layout_constraintStart_toStartOf="@+id/signIn"
+        app:layout_constraintTop_toBottomOf="@+id/signIn" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="275dp"
+        android:layout_height="391dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

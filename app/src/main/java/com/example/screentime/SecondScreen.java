@@ -1,45 +1,98 @@
 package com.example.screentime;
-
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
+import android.accessibilityservice.AccessibilityService;
+import android.annotation.SuppressLint;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
-public class SecondScreen extends AppCompatActivity {
+import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.FirebaseDatabase;
 
-    ImageView imageView;
-    TextView textView;
-    String packageName;
+public class SecondScreen extends AppCompatActivity implements Tab1.OnFragmentInteractionListener, Tab2.OnFragmentInteractionListener {
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private Bundle savedInstanceState;
+    @SuppressLint("WrongViewCast")
+    private static final String LOGTAG = "MainActivity";
+
+    static AccessibilityService accessibilityService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.secondscreen);
-        imageView = findViewById(R.id.imageView);
-        textView = findViewById(R.id.textView);
+        setContentView(R.layout.activity_second_screen);
 
-        Bundle extras = getIntent().getExtras();
 
-        if (extras != null) {
-            packageName = extras.getString("package_name");
-            Log.d("SecondScreen", "Package: "+packageName);
-
-            Drawable icon = null;
-            try {
-                    icon = getPackageManager().getApplicationIcon(packageName);
-                    PackageManager packageManager = getPackageManager();
-                    ApplicationInfo info = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA);
-                    String appName = (String) packageManager.getApplicationLabel(info);
-                    textView.setText(appName);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-            }
-            imageView.setImageDrawable(icon);
+        boolean enabled = isAccessibilityServiceEnabled(getApplicationContext(), AccessibilityService.class);
+        if(!enabled) {
+            Intent openSettings = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+            //openSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(openSettings);
+        }else{
+            Toast.makeText(getApplicationContext(),"Accessibility service is already on",Toast.LENGTH_SHORT).show();
         }
+
+        TabLayout tabLayout=(TabLayout)findViewById(R.id.tabLayout);
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.tab1));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.tab2));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager=(ViewPager)findViewById(R.id.pager);
+        final pagerAdapter adapter=new pagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    public static boolean isAccessibilityServiceEnabled(Context context, Class<? extends AccessibilityService> service) {
+        ComponentName expectedComponentName = new ComponentName(context, String.valueOf(accessibilityService));
+
+        String enabledServicesSetting = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+        if (enabledServicesSetting == null)
+            return false;
+
+        TextUtils.SimpleStringSplitter colonSplitter = new TextUtils.SimpleStringSplitter(':');
+        colonSplitter.setString(enabledServicesSetting);
+
+        while (colonSplitter.hasNext()) {
+            String componentNameString = colonSplitter.next();
+            ComponentName enabledService = ComponentName.unflattenFromString(componentNameString);
+
+            if (enabledService != null && enabledService.equals(expectedComponentName))
+                return true;
+        }
+
+        return false;
+    }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
+

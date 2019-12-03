@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#c4b3bb</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="front">#94697e</color>
+    <color name="background">#FFFFFF</color>
+    <color name="blacklistedcardview">#c4b3bb</color>
+    <color name="darkfont">#5f2f4e</color>
+    <color name="averageColor">#F7BC02</color>
+    <color name="backgroundTab">#48304B</color>
+    <color name="black">#000000</color>
 </resources>

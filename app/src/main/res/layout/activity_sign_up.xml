@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".SignUp">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="259dp"
+        android:layout_height="274dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="303dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/signupname"
+        android:textColorHint="@color/front"
+        android:textSize="20dp"
+        android:layout_marginTop="@dimen/tendpmargin"
+        app:layout_constraintEnd_toEndOf="@+id/logo"
+        app:layout_constraintStart_toStartOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/password"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColorHint="@color/front"
+        android:inputType="textPassword"
+        android:hint="Password"
+
+        android:textSize="20dp"
+        android:layout_margin="@dimen/thirtydpmargin"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/confirmPass"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColorHint="@color/front"
+        android:inputType="textPassword"
+        android:hint="Confirm Password"
+        android:textColor="@color/front"
+        android:textSize="20dp"
+        android:layout_margin="@dimen/thirtydpmargin"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:hint="@string/signupemail"
+        android:textColorHint="@color/front"
+        android:textSize="20dp"
+        android:layout_margin="@dimen/thirtydpmargin"
+        app:layout_constraintEnd_toEndOf="@+id/confirmPass"
+        app:layout_constraintStart_toStartOf="@+id/confirmPass"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPass"/>
+
+    <Button
+        android:id="@+id/signUpbutton"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="303dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_rounded"
+        android:shadowRadius="40"
+        android:text="@string/signupbutton"
+        android:textColor="@color/background"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

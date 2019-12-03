@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "736660416778",
+    "firebase_url": "https://krsytalproject.firebaseio.com",
+    "project_id": "krsytalproject",
+    "storage_bucket": "krsytalproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736660416778:android:ef88f34ff22fff499472f3",
+        "android_client_info": {
+          "package_name": "com.example.screentime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736660416778-2fctspd7a64roinhkj5tmogoqq25dp83.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.screentime",
+            "certificate_hash": "1a3c123bad2f84be083511f607f17159265402bd"
+          }
+        },
+        {
+          "client_id": "736660416778-bc8g8inhqb5cap2aq89qo6u3041lf8ma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhFokpBenTLI0UUf2Yy-Cm74sjZSigeoQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736660416778-bc8g8inhqb5cap2aq89qo6u3041lf8ma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
