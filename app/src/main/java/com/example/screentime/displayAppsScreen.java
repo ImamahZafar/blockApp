@@ -15,7 +15,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -79,15 +78,14 @@ public class displayAppsScreen extends AppCompatActivity {
                 final String packageName=item.packageName;
                 if (sharedPref1.getBoolean("krystalizeModeStatus", false) == true) {
                     setPackageNameForSchedule(packageName);
+                    final SharedPreferences.Editor editor1 = sharedPref1.edit();
+                    editor1.putBoolean("krystalizeModeStatus",false);
+                    editor1.commit();
                 }
                 else {
                     setpackageName(packageName);
                 }
                 blockedApp=packageName;
-                //blockList=getBlockList();
-                Log.i("q", "========="+packageName);
-
-                //blockList.put(temp,temp);
                 Toast.makeText(displayAppsScreen.this,packageName+" has been blocked", Toast.LENGTH_SHORT).show();
 
             }

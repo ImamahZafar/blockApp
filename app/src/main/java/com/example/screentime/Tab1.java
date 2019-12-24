@@ -6,12 +6,13 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 
 
 /**
@@ -28,9 +29,8 @@ public class Tab1 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public TextView textView;
+    public ImageView imageView;
     private OnFragmentInteractionListener mListener;
 
     public Tab1() {
@@ -59,6 +59,7 @@ public class Tab1 extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
     }
 
     @Override
@@ -73,10 +74,11 @@ public class Tab1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root= inflater.inflate(R.layout.fragment_tab1_relative_layout, container, false);
-
+        final View view = inflater.inflate(R.layout.fragment_tab1_relative_layout, container, false);
 
         BottomNavigationView bottomNavigationView= (BottomNavigationView)root.findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) navListener);
+
         return root;
     }
 

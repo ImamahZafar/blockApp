@@ -35,22 +35,22 @@ public class PopUpForHibernation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pop_up);
         final Intent intent = getIntent();
-        DisplayMetrics dm =new DisplayMetrics();
+        DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width =dm.widthPixels;
-        int height=dm.heightPixels;
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
 
         final SharedPreferences sharedPref = this.getSharedPreferences("HibernationInfo", Context.MODE_PRIVATE);
 
         final SharedPreferences.Editor editor = sharedPref.edit();
-        getWindow().setLayout((int)(width*.8),(int)(height*.6));
+        getWindow().setLayout((int) (width * .8), (int) (height * .6));
         final SharedPreferences sharedPref1 = getBaseContext().getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor loginInfoeditor =sharedPref1.edit();
+        final SharedPreferences.Editor loginInfoeditor = sharedPref1.edit();
         final String userEmail = sharedPref1.getString("email", null);
-        hibernateForFiveMin=findViewById(R.id.min5);
-        hibernateForThirtyMin=findViewById(R.id.min30);
-        hibernateForOneHour=findViewById(R.id.hour1);
-        hibernateForTwoHour=findViewById(R.id.hour2);
+        hibernateForFiveMin = findViewById(R.id.min5);
+        hibernateForThirtyMin = findViewById(R.id.min30);
+        hibernateForOneHour = findViewById(R.id.hour1);
+        hibernateForTwoHour = findViewById(R.id.hour2);
 
         hibernateForFiveMin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,21 +64,48 @@ public class PopUpForHibernation extends AppCompatActivity {
                 editor.commit();
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
-                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     @Override
                     public void run() {
                         //Do something after 5m
+                final String appName = sharedPref.getString("appName", null);
+                database.getReference("User").getRef().addValueEventListener(new ValueEventListener(){
+                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        editor.putInt("time",5);
-                        editor.commit();
-                        showNotification(PopUpForHibernation.this,"Yayyy!","You acquired a new Krystal",intent);
+                        for (DataSnapshot uniqueKeySnapshot : dataSnapshot.getChildren()) {
+                            if (uniqueKeySnapshot.child("email").getValue().equals(userEmail)) {
 
 
+                                    for (DataSnapshot child : uniqueKeySnapshot.child("blockList").getChildren()) {
+                                        if (appName.equals(child.getValue().toString())) {
+
+                                            child.getRef().setValue(null);
+                                            showNotification(PopUpForHibernation.this, "Yayyy!", "You acquired a new Krystal", intent);
+
+                                        }
+
+                                    }
+
+                            }
+                        }
                     }
-
-                        }, 100000);
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        // Log.w(TAG, "Failed to read value.", error.toException());
                     }
                 });
+
+            }
+        }, 60000);
+    }
+});
+
+
+
+
+
 
 
         hibernateForThirtyMin.setOnClickListener(new View.OnClickListener() {

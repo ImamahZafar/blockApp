@@ -108,7 +108,12 @@ public class AlternateScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String appName = sharedPref1.getString("currentPackage", null);
-                final int[] i = {0};
+                Context context = AlternateScreen.this;
+                final SharedPreferences unblockAppName = context.getSharedPreferences(
+                        "unblockApp", Context.MODE_PRIVATE);
+                SharedPreferences.Editor unblockEditor = unblockAppName.edit();
+                unblockEditor.putString("unblockAppName",appName);
+                unblockEditor.apply();
                 database.getReference("User").getRef().addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -121,7 +126,7 @@ public class AlternateScreen extends AppCompatActivity {
                                             child.getRef().removeValue();
 
                                             showNotification(AlternateScreen.this, "Oh No!", "You lost a Krystal", intent);
-                                            finish();
+                                         finish();
                                             break;
 
                                         }

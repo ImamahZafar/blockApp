@@ -1,6 +1,8 @@
 package com.example.screentime;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -87,6 +89,12 @@ public class SignUp extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                         }
                     });
+                    final SharedPreferences sharedPref = SignUp.this.getSharedPreferences(
+                            "loginInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("email", email.getText().toString());
+                    editor.putString("password", password.getText().toString());
+                    editor.apply();
                     openSecondScreen();
                 }
             }

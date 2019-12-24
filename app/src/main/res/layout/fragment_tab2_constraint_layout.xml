@@ -113,16 +113,16 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/white_button_rounded"
                 android:backgroundTint="#ffffff"
-                app:srcCompat="@drawable/star" />
+                app:srcCompat="@drawable/time" />
 
             <TextView
                 android:id="@+id/starText"
-                android:layout_width="112dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="130dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/playfair_display"
-                android:text="@string/star_app"
+                android:text="SCHEDULE APP"
                 android:textColor="@color/background"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -154,7 +154,7 @@
         android:fontFamily="@font/playfair_display"
         android:text="Imamah!"
         android:textColor="@color/front"
-        android:textSize="28sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:fontFamily="@font/playfair_display"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
